@@ -8,12 +8,14 @@ package sample;
  */
 public class gcdCalculator {
     private StringBuilder lastMathCalculation;
+    private boolean isMathCalculationsDone;
 
     /**
      * Constructor for the object of the lass gcdCalculator.
      */
     public gcdCalculator() {
         this.lastMathCalculation = new StringBuilder();
+        this.isMathCalculationsDone = true;
     }
 
     /**
@@ -26,19 +28,33 @@ public class gcdCalculator {
     public int findGCD(int numberA, int numberB) {
         int numberX;
 
-        //Deletes the last math calculations then making a new.
-        this.lastMathCalculation.delete(0, lastMathCalculation.length());
-        this.lastMathCalculation.append("gcd(").append(numberA).append(", ").append(numberB).append(")=\n");
-
         do {
             numberX = numberA-(amountOfTimesAGoesUpInB(numberA, numberB)*numberB);
-            this.lastMathCalculation.append(numberA).append("=").append(amountOfTimesAGoesUpInB(numberA, numberB)).append("*")
-                    .append(numberB).append("+").append(numberX).append("\n");
+            makeMathCalculationString(numberA, numberB, numberX);
             numberA = numberB;
             numberB = numberX;
         } while(numberX != 0);
 
+        isMathCalculationsDone = true;
         return numberA;
+    }
+
+    /**
+     * Append on all math calculations on the class global StringBuilder.
+     * This is a helper method for the method findGCD.
+     * @param numberA same as numberA in findGCD
+     * @param numberB same as numberB in findGCD
+     * @param numberX same as numberX in findGCD
+     */
+    private void makeMathCalculationString(int numberA, int numberB, int numberX) {
+        if(isMathCalculationsDone) {
+            //Deletes the last math calculations then making a new.
+            this.lastMathCalculation.delete(0, lastMathCalculation.length());
+            this.lastMathCalculation.append("gcd(").append(numberA).append(", ").append(numberB).append(")=\n");
+            isMathCalculationsDone = false;
+        }
+        this.lastMathCalculation.append(numberA).append("=").append(amountOfTimesAGoesUpInB(numberA, numberB)).append("*")
+                .append(numberB).append("+").append(numberX).append("\n");
     }
 
     /**

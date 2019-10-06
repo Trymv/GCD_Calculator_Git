@@ -104,7 +104,7 @@ public class ApplicationGUI extends Application {
             textFieldA.setId("textField");
         });
 
-        //Button =
+        //Button = to find the greatest common divisor
         Button btnEqual = new Button("=");
         btnEqual.setId("buttonStyle");
         btnEqual.setOnAction(e -> {
@@ -162,7 +162,7 @@ public class ApplicationGUI extends Application {
             }
         });
 
-        //Button SM
+        //Button SM to open dialog widow with the math calculations.
         Button btnSM = new Button("SM");
         btnSM.setId("buttonStyle");
         btnSM.setOnAction(e -> {
