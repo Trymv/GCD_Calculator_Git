@@ -39,7 +39,7 @@ public class ApplicationGUI extends Application {
         Scene scene = new Scene(calculatorGrid, 380, 583);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("file:../StyleSheet/Calculator-icon.png"));
+        primaryStage.getIcons().add(new Image("http://icons.iconarchive.com/icons/wwalczyszyn/android-style/32/Calculator-icon.png"));
         scene.getStylesheets().add
                 (ApplicationGUI.class.getResource("../StyleSheet/CalculatorStyleSheet.css").toExternalForm());
 
